@@ -66,9 +66,9 @@ public class CircularBuffer<T> {
         }
     }
 
-    public void AddAll(List<? extends T> toAdd) throws FullCircularBufferException {
+    public void addAll(List<? extends T> toAdd) throws FullCircularBufferException {
         for (T item : toAdd) {
-            if (!isEmpty()) {
+            if (!checkIfBufferIsFull()) {
                 put(item);
             } else {
                 throw new FullCircularBufferException();
